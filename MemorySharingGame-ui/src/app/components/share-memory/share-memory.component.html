@@ -1,0 +1,30 @@
+<div *ngIf="validMessage != ''" class="container p-3 my-3 border border-success ">
+  <button class="btn btn-warn" (click)="resetValidMessage()">{{validMessage}}</button>
+</div>
+
+<div *ngIf="validMessage == ''" class="container">
+    <form [formGroup]="shareMemoryForm" (ngSubmit)="submitRegistration()" novalidate>
+      <div class="form-group">
+        <label>Your Number :</label><br>
+        <input type="tel" class="form-control" formControlName="sharedFromNumber" required autofocus/>
+        <div *ngIf="(sharedFromNumber.invalid && sharedFromNumber.touched)" class="alert alert-danger">
+          <small  *ngIf="sharedFromNumber.errors.required">Mobile number is required</small>
+          <small  *ngIf="sharedFromNumber.errors.pattern">Please enter a valid 10 digit mobile number</small>
+          </div>
+      </div>
+      <div class="form-group">
+        <label>Your Friend's Number : </label><br>
+        <input type="tel" class="form-control" formControlName="sharedToNumber" required/>
+        <div *ngIf="(sharedToNumber.invalid && sharedToNumber.touched)" class="alert alert-danger">
+          <small  *ngIf="sharedToNumber.errors.required">Mobile number is required</small>
+          <small  *ngIf="sharedToNumber.errors.pattern">Please enter a valid 10 digit mobile number</small>
+          </div>
+      </div>
+      <div class="form-group">
+        <label>Write your memory</label><br>
+        <textarea type="text" placeholder="Type your thougths here"  cols="50" rows="10   " class="form-control" formControlName="textContent" required></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!shareMemoryForm.valid" >Submit</button> to share the memory to your friend
+    </form>
+  </div>

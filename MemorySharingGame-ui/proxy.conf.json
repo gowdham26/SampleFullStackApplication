@@ -1,0 +1,11 @@
+{
+	"/server": {
+		"target": "https://intense-hollows-12905.herokuapp.com/",
+		"secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/server" : ""
+    }
+	}
+}

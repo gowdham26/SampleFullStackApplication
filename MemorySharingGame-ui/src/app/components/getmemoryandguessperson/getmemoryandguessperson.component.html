@@ -1,0 +1,14 @@
+<div  *ngIf="validMessage != ''" class="container">
+    <form [formGroup]="shareMemoryForm" (ngSubmit)="updatePersonWhoSharedMemory()" novalidate>
+      <div class="form-group">
+        <label>The following memory has been shared to you by your friend and find who is it</label><br>
+        <textarea type="text" rows="10" cols="50" class="form-control" formControlName="textContent" readonly autofocus></textarea>
+      </div>
+      <div class="form-group">
+        <label>Guess your friend name</label><br>
+        <input type="text" cdkAutosizeMinRows="100" class="form-control" formControlName="guessPerson" required/>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!shareMemoryForm.valid" >Submit</button>
+    </form>
+  </div>

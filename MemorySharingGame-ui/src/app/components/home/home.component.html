@@ -1,0 +1,21 @@
+<div class="container p-3 my-3 border border-primary">
+  <h2>How this works?</h2>
+  <div class="container p-3 my-3 border border-light">
+   Share memories or any messages secrtely to your friends.
+   your friend will be provided a link to access the message you shared and to guess your name. Once your friend guessed, you
+   will be receiving a text to know whether your friend found you or not.
+  </div>
+  
+</div>
+
+<div *ngIf="validMessage != ''">
+<div *ngIf="validMessage != ''" class="container p-3 my-3 border border-success ">
+  <h1 class="has-info">{{validMessage}}</h1>
+</div>
+</div>
+<div class="container">
+<div class="row" >
+    Click the follwing link to --> <a class="button border-primary" routerLink="/postMemory"> Create and Share memories to friends <b>secretly</b></a>
+  </div>
+</div>
+
